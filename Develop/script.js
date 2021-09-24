@@ -3,9 +3,8 @@
 //Create Global variables and link to HTML
 const generateBtn = document.querySelector("#generate");
 
-
+//Create prompt/confirm fields to get from user
 let getRandomFunc = {
-  //length: getRandomLength,
   upper: getRandomUpper,
   lower: getRandomLower,
   numbers: getRandomNumbers,
@@ -84,11 +83,6 @@ function getRandom (array) {
   return randomValue;
 };
 
-
-
-
-
-
 //Actually generate password to be sent to user
 //Generate password from functions below 
 function writePassword() {
@@ -106,27 +100,26 @@ generateBtn.addEventListener("click", writePassword);
 
 //https://www.net-comber.com/charset.html
 //Functions from CharCode to generate possible password combinations
-//Me trying to figure out random generation
-function getRandomLower() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-};
+//Me trying to figure out random generation -it's all worthless code but might be worth keeping for something later
+//function getRandomLower() {
+//return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+//};
 
 
-function getRandomUpper() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
+//function getRandomUpper() {
+//	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+//};
 
 
-function getRandomNumbers() {
-	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-};
+//function getRandomNumbers() {
+//	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+//};
 
 
-function getRandomSymbols() {
-  const symbols = '!@#$%^&*()+_{}|":;<>?'
-	return String.fromCharCode[Math.floor(Math.random() * symbols.length)];
-};
-
+//function getRandomSymbols() {
+//  const symbols = '!@#$%^&*()+_{}|":;<>?'
+//	return String.fromCharCode[Math.floor(Math.random() * symbols.length)];
+//};
 
 //Checking to see if my functions worked
 //console.log(getRandomLength());
