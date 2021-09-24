@@ -3,13 +3,14 @@
 //Create Global variables and link to HTML
 const generateBtn = document.querySelector("#generate");
 
-//Create prompt/confirm fields to get from user
-let getRandomFunc = {
-  upper: getRandomUpper,
-  lower: getRandomLower,
-  numbers: getRandomNumbers,
-  symbols: getRandomSymbols,
-};
+
+//let getRandomFunc = {
+  //length: getRandomLength,
+  //upper: getRandomUpper,
+  //lower: getRandomLower,
+ // numbers: getRandomNumbers,
+  //symbols: getRandomSymbols,
+//};
 
 //Create array with possible outcomes
 let passwordArr = [];
@@ -69,7 +70,7 @@ if (number === true) {
 for (let i = 0; i < length; i++) {
   const randomChar = getRandom(passwordArr);
   finalPass.push(randomChar)
-}
+};
 
 return finalPass.join("");
 
@@ -100,7 +101,7 @@ generateBtn.addEventListener("click", writePassword);
 
 //https://www.net-comber.com/charset.html
 //Functions from CharCode to generate possible password combinations
-//Me trying to figure out random generation -it's all worthless code but might be worth keeping for something later
+//Me trying to figure out random generation -it's all bad code but might be worth keeping for something later
 //function getRandomLower() {
 //return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 //};
