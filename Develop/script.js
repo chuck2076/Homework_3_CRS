@@ -3,7 +3,7 @@
 //Create Global variables and link to HTML
 const generateBtn = document.querySelector("#generate");
 
-
+//Bad code but saving for a later time
 //let getRandomFunc = {
   //length: getRandomLength,
   //upper: getRandomUpper,
@@ -27,7 +27,7 @@ const symbols = ["!","@","#","$","%","^","&","*","()","+","_","{","|","?"]
 //Need to create the function with confirm or prompt
 function generatePassword ( ) {
 console.log ("generatePassword");
-let length = prompt("Pick a number between 8 and 128");
+let length = prompt("Your password must be between 8 and 128 characters. Please choose the length of your password.");
 console.log (length);
 
 //Conc array for all possible outcomes
