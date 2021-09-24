@@ -12,7 +12,10 @@ let getRandomFunc = {
   symbols: getRandomSymbols,
 };
 
+//Create array with possible outcomes
 let passwordArr = [];
+
+let finalPass = [];
 
 const upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 const lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -20,33 +23,21 @@ const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const symbols = ["!","@","#","$","%","^","&","*","()","+","_","{","|","?"]
 
 
-//Need to create Elements in the OnClick
-//Need to create the function with media.alert() or media.prompt
-// Function to obtain elements from the choices given for pwd to the #password box; my "listen" event
-// generateBtn.addEventListener("click", () => {
-//     const length = +lengthBtn
-//     const upperChecked = uppercaseBtn.checked;
-//     const lowerChecked = lowercaseBtn.checked;
-//     const numbersChecked = numbersBtn.checked;
-//     const symbolsChecked = symbolsBtn.checked;
-
-//     //This is where I will place the results from generator functions
-// password = generatePassword(
-//   length, 
-//   upperChecked, 
-//   lowerChecked, 
-//   numbersChecked, 
-//   symbolsChecked
-// );
-  
-// });
-
-//Create array with length, lower, upper, numbers, symbols
-
+//User prompts with length, lower, upper, numbers, symbols for array
+//Need to create the function with confirm or prompt
 function generatePassword ( ) {
 console.log ("generatePassword");
 let length = prompt("Pick a number between 8 and 128");
 console.log (length);
+
+//Conc array for all possible outcomes
+//Set unchecked items to false
+//Check to see if length is >=8 and <= 128
+if (length < 8 || length > 128){
+  alert("Password must be between 8 and 128!");
+  return 
+};
+
 let upper = confirm("Do you want Upper Case letters?");
 console.log (upper);
 let lower = confirm("Do you want lower case letters?");
@@ -55,39 +46,50 @@ let number = confirm("Do you want Numbers?");
 console.log (number);
 let symbol = confirm("Do you want Symbols?");
 console.log (symbol);
+
+if (upper === true) {
+  passwordArr = passwordArr.concat(upperCase);
+  console.log (passwordArr);
+}; 
+
+if (lower === true) {
+  passwordArr = passwordArr.concat (lowerCase);
+  console.log (lowerCase);
 };
 
-//Set unchecked items to false
-function myPassword () {
+if (symbol === true) {
+  passwordArr = passwordArr.concat (symbols);
+  console.log (symbols);
+};
 
-  if (upper === true) {
-    passwordArr.concat(upperCase);
-    console.log (upperCase);
-  }; 
-  
-  if (lower === true) {
-    passwordArr.concat (lowerCase);
-    console.log (lowerCase);
-  };
-  
+if (number === true) {
+  passwordArr = passwordArr.concat (numbers);
+  console.log (numbers);
+};
 
-  if (symbol === true) {
-    passwordArr.concat (symbols);
-    console.log (symbols);
-  };
+for (let i = 0; i < length; i++) {
+  const randomChar = getRandom(passwordArr);
+  finalPass.push(randomChar)
+}
 
-  if (number === true) {
-    passwordArr.concat (numbers);
-    console.log (numbers);
-  };
-
-   return myPassword;
+return finalPass.join("");
 
 };
+
+function getRandom (array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+
+  const randomValue = array[randomIndex];
+
+  return randomValue;
+};
+
+
+
+
 
 
 //Actually generate password to be sent to user
-//Set length to >=8 and <= 128
 //Generate password from functions below 
 function writePassword() {
   //const password = generatePassword(length, lower, upper, numbers, symbols);
@@ -97,28 +99,35 @@ function writePassword() {
 
 };
 
+// Add event listener to log password after prompts
+generateBtn.addEventListener("click", writePassword);
+
+
 
 //https://www.net-comber.com/charset.html
 //Functions from CharCode to generate possible password combinations
+//Me trying to figure out random generation
 function getRandomLower() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 };
 
+
 function getRandomUpper() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+};
+
 
 function getRandomNumbers() {
 	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
+};
+
 
 function getRandomSymbols() {
   const symbols = '!@#$%^&*()+_{}|":;<>?'
 	return String.fromCharCode[Math.floor(Math.random() * symbols.length)];
-}
+};
+
 
 //Checking to see if my functions worked
 //console.log(getRandomLength());
 
-// Add event listener to log password after prompts
-generateBtn.addEventListener("click", writePassword);
