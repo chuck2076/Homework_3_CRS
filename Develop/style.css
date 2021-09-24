@@ -11,7 +11,9 @@ body,
   margin: 0;
   padding: 0;
 }
-
+a {
+  text-decoration: none;
+}
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -72,7 +74,8 @@ header {
   clear: both;
 }
 
-.btn {
+.btn,
+.btn2 {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
@@ -119,7 +122,8 @@ button[disabled] {
 }
 
 @media (max-width: 690px) {
-  .btn {
+  .btn,
+  .btn2 {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
