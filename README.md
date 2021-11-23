@@ -34,7 +34,7 @@ The following image shows the web application's appearance and functionality:
 ![Screenshot of Deployed Password Generator](./Assets/screencapture-chuck2076-github-io-Homework-3-CRS-2021-09-23-20_15_00.png)
 
 ## Link to Deployed App
-https://chuck2076.github.io/Homework_3_CRS/
+https://chuck2076.github.io/PasswordGenerator_CRS/
 
 ## Grading Requirements
 
